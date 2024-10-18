@@ -23,11 +23,25 @@ namespace GerenciadorDeContatos.API.Repositorio.BancoDeDados
             modelBuilder.Entity<Telefone>()
                         .HasKey(c => c.Id);
 
+            modelBuilder.Entity<Usuario>()
+                        .HasMany(c => c.Contatos)
+                        .WithOne(c => c.Usuario)
+                        .HasForeignKey(c => c.UsuarioID);
+
+            modelBuilder.Entity<Contato>()
+                        .HasOne(c => c.Usuario)
+                        .WithMany(c => c.Contatos)
+                        .HasForeignKey(c => c.UsuarioID);
+
+            modelBuilder.Entity<Contato>()
+                        .HasMany(c => c.Telefones)
+                        .WithOne(c => c.Contato)
+                        .HasForeignKey(c => c.ContatoID);
+
             modelBuilder.Entity<Telefone>()
                         .HasOne(c => c.Contato)
-                        .WithMany()
-                        .HasForeignKey(c => c.ContatoID)
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany(c => c.Telefones)
+                        .HasForeignKey(c => c.ContatoID);
         }
     }
 }

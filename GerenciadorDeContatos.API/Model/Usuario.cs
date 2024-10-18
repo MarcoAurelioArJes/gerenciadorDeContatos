@@ -11,5 +11,6 @@ namespace GerenciadorDeContatos.API.Model
         public string Senha { get; set; }
         public DateTime DataNascimento { get; set; }
         public CargosEnum Cargo { get; set; }
+        public List<Contato> Contatos { get; set; }
     }
 }

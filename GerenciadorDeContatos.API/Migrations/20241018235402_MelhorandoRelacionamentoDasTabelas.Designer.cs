@@ -3,6 +3,7 @@ using System;
 using GerenciadorDeContatos.API.Repositorio.BancoDeDados;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GerenciadorDeContatos.API.Migrations
 {
     [DbContext(typeof(ContextoDoBancoDeDados))]
-    partial class ContextoDoBancoDeDadosModelSnapshot : ModelSnapshot
+    [Migration("20241018235402_MelhorandoRelacionamentoDasTabelas")]
+    partial class MelhorandoRelacionamentoDasTabelas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.14");
